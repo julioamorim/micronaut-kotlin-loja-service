@@ -3,3 +3,7 @@ micronaut:
     name: lojaService
   server:
     port: 8081
+
+kafka:
+  bootstrap:
+    servers: localhost:9092
