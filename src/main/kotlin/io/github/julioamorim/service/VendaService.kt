@@ -3,18 +3,16 @@ package io.github.julioamorim.service
 import io.github.julioamorim.DTO.input.VendaInput
 import io.github.julioamorim.DTO.output.Parcela
 import io.github.julioamorim.DTO.output.Venda
-import io.github.julioamorim.http.VeiculoHttp
 import jakarta.inject.Singleton
-import java.math.BigDecimal
 import java.time.LocalDate
 
 @Singleton
 class VendaService(
-    private val veiculoHttp: VeiculoHttp
+    private val veiculoService: VeiculoService
 ) {
 
     fun realizarVenda(vendaInput: VendaInput) {
-        val veiculo = veiculoHttp.findById(vendaInput.veiculo)
+        val veiculo = veiculoService.getVeiculo(vendaInput.veiculo)
         var parcelas: List<Parcela> = ArrayList<Parcela>()
         var valorParcela = vendaInput.valor.divide(vendaInput.quantidadeParcelas.toBigDecimal())
         var dataVencimento = LocalDate.now().plusMonths(1)
