@@ -19,5 +19,4 @@ class VeiculoHttpFallBack(
         return veiculo
     }
 
-
 }
