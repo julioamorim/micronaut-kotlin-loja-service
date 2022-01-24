@@ -8,6 +8,6 @@ import io.micronaut.configuration.kafka.annotation.Topic
 @KafkaClient
 interface VendaProducer {
 
-    @Topic("ms-vendas")
+    @Topic("msvendas")
     fun publicarVenda(@KafkaKey id: String, vendaJSON: String)
 }
